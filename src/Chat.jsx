@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 function Chat({ drone, currentUser }) {
   const [chatMessages, setChatMessages] = useState([]);
-  const userColor = "#ffffff";
 
   useEffect(() => {
     function onRoomData(message, client) {
@@ -13,8 +12,7 @@ function Chat({ drone, currentUser }) {
           client.id === drone.clientId
             ? currentUser
             : message.clientData.username,
-        color:
-          client.id === drone.clientId ? userColor : message.clientData.color,
+
         isCurrentUser: client.id === drone.clientId,
       };
 
@@ -36,7 +34,7 @@ function Chat({ drone, currentUser }) {
           key={message.id}
           className={`message ${message.isCurrentUser ? "me" : "other"}`}
         >
-          <p className="author" style={{ color: message.color }}>
+          <p className="author" style={{ color: "#ffffff" }}>
             {message.isCurrentUser ? "You" : message.author}
           </p>
           <p>{message.message}</p>

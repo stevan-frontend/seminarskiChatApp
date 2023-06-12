@@ -36,7 +36,6 @@ function ChatApp() {
           data: message,
           clientData: {
             username: currentUser,
-            color: "#ffffff",
           },
         },
       });
